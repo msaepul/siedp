@@ -269,41 +269,41 @@ class SparepartController extends Controller
     }
 
 
-    public function updatesparepart(Request $request, $id)
-    {
-        $request->validate([
-            'nama_sparepart' => 'required',
-            'supplier' => 'required',
-            'stok' => 'required|numeric',
-            'harga' => 'required',
-            'tgl_pbl' => 'required|date',
-        ]);
+    // public function updatesparepart(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'nama_sparepart' => 'required',
+    //         'supplier' => 'required',
+    //         'stok' => 'required|numeric',
+    //         'harga' => 'required',
+    //         'tgl_pbl' => 'required|date',
+    //     ]);
 
 
-        $sparepart = Sparepart::find($id);
-        $sparepart->nama_sparepart = $request->input('nama_sparepart');
-        $sparepart->supplier = $request->input('supplier');
-        $sparepart->stok = $request->input('stok');
-        $sparepart->harga = $request->input('harga');
-        $sparepart->tgl_pbl = $request->input('tgl_pbl');
-        $sparepart->id_cabang = $request->input('id_cabang');
+    //     $sparepart = Sparepart::find($id);
+    //     $sparepart->nama_sparepart = $request->input('nama_sparepart');
+    //     $sparepart->supplier = $request->input('supplier');
+    //     $sparepart->stok = $request->input('stok');
+    //     $sparepart->harga = $request->input('harga');
+    //     $sparepart->tgl_pbl = $request->input('tgl_pbl');
+    //     $sparepart->id_cabang = $request->input('id_cabang');
 
-        $sparepart->save();
+    //     $sparepart->save();
 
-        // Sparepart::create($request->all());
-        // // Membuat data sparepart baru berdasarkan data yang diambil dari request
+    //     // Sparepart::create($request->all());
+    //     // // Membuat data sparepart baru berdasarkan data yang diambil dari request
 
-        return redirect()->route('sparepart')->with('success', 'Data sparepart berhasil ditambahkan.');
-        // Melakukan redirect dan menyertakan pesan sukses
-    }
+    //     return redirect()->route('sparepart')->with('success', 'Data sparepart berhasil ditambahkan.');
+    //     // Melakukan redirect dan menyertakan pesan sukses
+    // }
 
     public function editsparepart($id)
     {
-        $sparepart = Sparepart::findOrFail($id);
+        $loker = Loker::findOrFail($id);
         // Melakukan pengecekan apakah data dengan ID yang diberikan ditemukan atau tidak
 
-        return view('sparepart.edit', compact('sparepart'));
-        // Mengirimkan data sparepart ke view 'edit'
+        return view('loker.edit', compact('loker'));
+        // Mengirimkan data loker ke view 'edit'
     }
 
 
