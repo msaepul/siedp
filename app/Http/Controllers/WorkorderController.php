@@ -51,19 +51,20 @@ class WorkorderController extends Controller
     }
     public function woproses(Request $request)
     {
-
         $validatedData = $request->validate([
-
             'tgl_dibuat' => 'required',
             'obyek' => 'required',
             'keadaan' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'no_wo' => 'unique:workorders',
         ], [
-            'nama_perangkat.required' => 'Kolom Nama Perangkat harus diisi.',
-            'obyek.required' => 'Kolom Obyek Perangkat harus diisi.',
-            'keadaan.required' => 'Kolom Keadaan Perangkat harus diisi.',
-
+            'tgl_dibuat.required' => 'Kolom Tanggal Dibuat harus diisi.',
+            'obyek.required' => 'Kolom Obyek harus diisi.',
+            'keadaan.required' => 'Kolom Keadaan harus diisi.',
+            'user_id.required' => 'Kolom User ID harus diisi.',
+            'no_wo.unique' => 'Nomor WO sudah digunakan, harap gunakan nomor yang berbeda.',
         ]);
+        
         $cabang = Auth::user()->cabang;
         $generate = workorder::generateNomor();
         if ($request->hasFile('gambar')) {
