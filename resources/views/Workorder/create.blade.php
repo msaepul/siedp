@@ -51,7 +51,7 @@
                         @endif
                         <!-- /.card -->
                         <div class="d-flex justify-content-center">
-                            <div class="card card-secondary card-outline col-12 col-md-10">
+                            <div class="card card-light card-secondary  col-12 col-md-10">
                                 <div class="card-header">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <h3 class="card-title font-weight-bold">Form Work Order</h3>
@@ -138,6 +138,7 @@
                                 </div>
                             </div>
                             <!-- /.card -->
+                            
                         </div>
                     </div>
                     <!-- /.content -->
